@@ -38,5 +38,16 @@ public class ShootingStreak {
             System.out.println("Please provide at least 4 program arguments:\n" +
                     "gamesPath gameNumber shotType player1 player2 ...");
         }
+        GameFileProcessor gfp = new GameFileProcessor();
+        String argsString = "";
+        for (String s: args) {
+            argsString = argsString + " " + s;
+        }
+        if (gfp.processArgs(argsString)){
+            System.out.println("processArgs complete");
+        }
+        if (gfp.processFile()){
+            System.out.println("processFile complete");
+        }
     }
 }

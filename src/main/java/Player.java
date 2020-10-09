@@ -29,4 +29,8 @@ public class Player {
             missStreak = missCount;
         }
     }
+
+    public String getName() {
+        return name;
+    }
 }
