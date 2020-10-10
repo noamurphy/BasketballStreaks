@@ -38,16 +38,20 @@ public class ShootingStreak {
             System.out.println("Please provide at least 4 program arguments:\n" +
                     "gamesPath gameNumber shotType player1 player2 ...");
         }
+        String argString = "";
+        for (String arg:args) {
+            argString = (argString + arg + " ");
+        }
         GameFileProcessor gfp = new GameFileProcessor();
-        String argsString = "";
-        for (String s: args) {
-            argsString = argsString + " " + s;
+        gfp.processArgs(argString);
+        if(gfp.getGameNumber().toUpperCase().equals("ALL")){
+            for (int i = 1; (i <= 82); i++) {
+                gfp.processFile(Integer.toString(i));
+            }
         }
-        if (gfp.processArgs(argsString)){
-            System.out.println("processArgs complete");
+        else {
+            gfp.processFile(gfp.getGameNumber());
         }
-        if (gfp.processFile()){
-            System.out.println("processFile complete");
-        }
+        gfp.printResults();
     }
 }

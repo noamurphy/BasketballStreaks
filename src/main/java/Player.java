@@ -33,4 +33,12 @@ public class Player {
     public String getName() {
         return name;
     }
+
+    public int getMissStreak(){
+        return missStreak;
+    }
+
+    public int getMadeStreak() {
+        return madeStreak;
+    }
 }
